@@ -13,9 +13,9 @@ const GamePage: React.FC<PageProps> = ({ isDark, stats, updateStats, difficulty 
   const [gameTime, setGameTime] = useState(0);
 
   const difficultyRanges = {
-    easy: { min: 1, max: 50, name: 'Легкий (1-50)' },
-    medium: { min: 1, max: 100, name: 'Средний (1-100)' },
-    hard: { min: 1, max: 500, name: 'Сложный (1-500)' }
+    easy: { min: 1, max: 50, name: 'easy (1-50)' },
+    medium: { min: 1, max: 100, name: 'medium (1-100)' },
+    hard: { min: 1, max: 500, name: 'hard (1-500)' }
   };
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const GamePage: React.FC<PageProps> = ({ isDark, stats, updateStats, difficulty 
     setTargetNumber(newTarget);
     setGuess('');
     setAttempts(0);
-    setFeedback('Игра началась! Попробуйте угадать число.');
+    setFeedback('The game has begun! Try to guess the number.');
     setGameState('playing');
     setHistory([]);
     setStartTime(Date.now());
@@ -48,12 +48,12 @@ const GamePage: React.FC<PageProps> = ({ isDark, stats, updateStats, difficulty 
     const newAttempts = attempts + 1;
     setAttempts(newAttempts);
 
-    const guessText = `Попытка ${newAttempts}: ${guessNum}`;
+    const guessText = `Attempt ${newAttempts}: ${guessNum}`;
 
     if (guessNum === targetNumber) {
-      setFeedback(`Поздравляем! Вы угадали число ${targetNumber} за ${newAttempts} попыток!`);
+      setFeedback(`Congratulations! You've guessed the number ${targetNumber} in ${newAttempts} attempts!`);
       setGameState('won');
-      setHistory(prev => [...prev, `${guessText} - Правильно! 🎉`]);
+      setHistory(prev => [...prev, `${guessText} - Correct! 🎉`]);
 
       // Update stats
       const newStats = {
@@ -65,11 +65,11 @@ const GamePage: React.FC<PageProps> = ({ isDark, stats, updateStats, difficulty 
       };
       updateStats(newStats);
     } else if (guessNum < targetNumber) {
-      setFeedback('Загаданное число больше! Попробуйте еще раз.');
-      setHistory(prev => [...prev, `${guessText} - Больше ↑`]);
+      setFeedback("The guessed number is higher! Try again.");
+      setHistory(prev => [...prev, `${guessText} - Higher ↑`]);
     } else {
-      setFeedback('Загаданное число меньше! Попробуйте еще раз.');
-      setHistory(prev => [...prev, `${guessText} - Меньше ↓`]);
+      setFeedback("The guessed number is lower! Try again.");
+      setHistory(prev => [...prev, `${guessText} - Lower ↓`]);
     }
 
     setGuess('');
@@ -90,9 +90,9 @@ const GamePage: React.FC<PageProps> = ({ isDark, stats, updateStats, difficulty 
   return (
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Игра "Угадай число"</h1>
+        <h1 className="text-4xl font-bold mb-4">Game "Guess the Number"</h1>
         <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-          Текущий уровень: {difficultyRanges[difficulty].name}
+          Current level: {difficultyRanges[difficulty].name}
         </p>
       </div>
 
@@ -103,18 +103,18 @@ const GamePage: React.FC<PageProps> = ({ isDark, stats, updateStats, difficulty 
             }`}>
             {gameState === 'idle' && (
               <div className="text-center">
-                <h2 className="text-2xl font-bold mb-4">Готовы начать?</h2>
+                <h2 className="text-2xl font-bold mb-4">Ready to start?</h2>
                 <p className={`mb-6 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                  Нажмите кнопку ниже, чтобы начать новую игру
+                  Click the button below to start a new game
                 </p>
                 <button
                   onClick={startNewGame}
                   className={`px-8 py-3 rounded-lg font-medium transition-colors duration-200 ${isDark
-                      ? 'bg-white text-black hover:bg-gray-200'
-                      : 'bg-black text-white hover:bg-gray-800'
+                    ? 'bg-white text-black hover:bg-gray-200'
+                    : 'bg-black text-white hover:bg-gray-800'
                     }`}
                 >
-                  Начать игру
+                  Start Game
                 </button>
               </div>
             )}
@@ -128,11 +128,11 @@ const GamePage: React.FC<PageProps> = ({ isDark, stats, updateStats, difficulty 
                   <div className="flex items-center justify-center space-x-4 mb-4">
                     <div className="flex items-center space-x-2">
                       <Target size={20} />
-                      <span>Попытки: {attempts}</span>
+                      <span>Attempts: {attempts}</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Clock size={20} />
-                      <span>Время: {formatTime(gameTime)}</span>
+                      <span>Time: {formatTime(gameTime)}</span>
                     </div>
                   </div>
                 </div>
@@ -143,21 +143,21 @@ const GamePage: React.FC<PageProps> = ({ isDark, stats, updateStats, difficulty 
                     value={guess}
                     onChange={(e) => setGuess(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder="Введите число"
+                    placeholder="Enter a number"
                     className={`flex-1 px-4 py-3 rounded-lg border transition-colors duration-200 ${isDark
-                        ? 'bg-black/50 border-white/20 text-white placeholder-gray-400'
-                        : 'bg-white border-black/20 text-black placeholder-gray-600'
+                      ? 'bg-black/50 border-white/20 text-white placeholder-gray-400'
+                      : 'bg-white border-black/20 text-black placeholder-gray-600'
                       }`}
                   />
                   <button
                     onClick={makeGuess}
                     disabled={!guess}
                     className={`px-6 py-3 rounded-lg font-medium transition-colors duration-200 ${isDark
-                        ? 'bg-white text-black hover:bg-gray-200 disabled:bg-gray-600 disabled:text-gray-400'
-                        : 'bg-black text-white hover:bg-gray-800 disabled:bg-gray-400 disabled:text-gray-600'
+                      ? 'bg-white text-black hover:bg-gray-200 disabled:bg-gray-600 disabled:text-gray-400'
+                      : 'bg-black text-white hover:bg-gray-800 disabled:bg-gray-400 disabled:text-gray-600'
                       }`}
                   >
-                    Угадать
+                    Guess
                   </button>
                 </div>
               </div>
@@ -166,22 +166,22 @@ const GamePage: React.FC<PageProps> = ({ isDark, stats, updateStats, difficulty 
             {gameState === 'won' && (
               <div className="text-center">
                 <Trophy className="mx-auto mb-4" size={48} />
-                <h2 className="text-2xl font-bold mb-4">Поздравляем!</h2>
+                <h2 className="text-2xl font-bold mb-4">Congratulations!</h2>
                 <p className={`text-lg mb-6 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                   {feedback}
                 </p>
                 <p className={`mb-6 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                  Время игры: {formatTime(gameTime)}
+                  Game Time: {formatTime(gameTime)}
                 </p>
                 <button
                   onClick={startNewGame}
                   className={`px-8 py-3 rounded-lg font-medium transition-colors duration-200 ${isDark
-                      ? 'bg-white text-black hover:bg-gray-200'
-                      : 'bg-black text-white hover:bg-gray-800'
+                    ? 'bg-white text-black hover:bg-gray-200'
+                    : 'bg-black text-white hover:bg-gray-800'
                     }`}
                 >
                   <RefreshCw className="inline mr-2" size={20} />
-                  Играть снова
+                  Play Again
                 </button>
               </div>
             )}
@@ -193,18 +193,18 @@ const GamePage: React.FC<PageProps> = ({ isDark, stats, updateStats, difficulty 
           {/* Current Game Stats */}
           <div className={`p-6 rounded-lg border ${isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
             }`}>
-            <h3 className="text-lg font-bold mb-4">Текущая игра</h3>
+            <h3 className="text-lg font-bold mb-4">Current Game</h3>
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span>Попытки:</span>
+                <span>Attempts:</span>
                 <span className="font-medium">{attempts}</span>
               </div>
               <div className="flex justify-between">
-                <span>Время:</span>
+                <span>Time:</span>
                 <span className="font-medium">{formatTime(gameTime)}</span>
               </div>
               <div className="flex justify-between">
-                <span>Диапазон:</span>
+                <span>Range:</span>
                 <span className="font-medium">
                   {difficultyRanges[difficulty].min}-{difficultyRanges[difficulty].max}
                 </span>
@@ -216,7 +216,7 @@ const GamePage: React.FC<PageProps> = ({ isDark, stats, updateStats, difficulty 
           {history.length > 0 && (
             <div className={`p-6 rounded-lg border ${isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
               }`}>
-              <h3 className="text-lg font-bold mb-4">История попыток</h3>
+              <h3 className="text-lg font-bold mb-4">History of Attempts</h3>
               <div className="space-y-2 max-h-64 overflow-y-auto">
                 {history.map((entry, index) => (
                   <div

@@ -18,13 +18,13 @@ const INITIAL_STATS: GameStats = {
 };
 
 const pages = [
-  { id: 'home', name: 'Главная', icon: Home },
-  { id: 'about', name: 'О нас', icon: Info },
-  { id: 'game', name: 'Игра', icon: Gamepad2 },
-  { id: 'stats', name: 'Статистика', icon: BarChart3 },
-  { id: 'settings', name: 'Настройки', icon: Settings },
-  { id: 'gallery', name: 'Галерея', icon: Image },
-  { id: 'contact', name: 'Контакты', icon: Mail },
+  { id: 'home', name: 'Home', icon: Home },
+  { id: 'about', name: 'About Us', icon: Info },
+  { id: 'game', name: 'Game', icon: Gamepad2 },
+  { id: 'stats', name: 'Statistics', icon: BarChart3 },
+  { id: 'settings', name: 'Settings', icon: Settings },
+  { id: 'gallery', name: 'Gallery', icon: Image },
+  { id: 'contact', name: 'Contact', icon: Mail },
 ];
 
 function App() {

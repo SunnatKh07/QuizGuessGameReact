@@ -28,28 +28,27 @@ const ContactPage: React.FC<PageProps> = ({ isDark }) => {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Контакты</h1>
+        <h1 className="text-4xl font-bold mb-4">Contacts</h1>
         <p className={`text-lg ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-          Свяжитесь с нами для получения поддержки или предложений
+          Contact us for support or suggestions
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Contact Form */}
-        <div className={`p-8 rounded-lg border ${
-          isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
-        }`}>
+        <div className={`p-8 rounded-lg border ${isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
+          }`}>
           <div className="flex items-center space-x-3 mb-6">
             <Mail size={24} />
-            <h2 className="text-2xl font-bold">Напишите нам</h2>
+            <h2 className="text-2xl font-bold">Write to us</h2>
           </div>
 
           {isSubmitted ? (
             <div className="text-center py-8">
               <Send className="mx-auto mb-4" size={48} />
-              <h3 className="text-xl font-bold mb-2">Сообщение отправлено!</h3>
+              <h3 className="text-xl font-bold mb-2">Message sent!</h3>
               <p className={`${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                Мы получили ваше сообщение и свяжемся с вами в ближайшее время.
+                We have received your message and will get back to you shortly.
               </p>
             </div>
           ) : (
@@ -57,7 +56,7 @@ const ContactPage: React.FC<PageProps> = ({ isDark }) => {
               <div>
                 <label htmlFor="name" className="block font-medium mb-2">
                   <User className="inline mr-2" size={16} />
-                  Имя
+                  Name
                 </label>
                 <input
                   type="text"
@@ -66,11 +65,10 @@ const ContactPage: React.FC<PageProps> = ({ isDark }) => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
-                    isDark
-                      ? 'bg-black/50 border-white/20 text-white placeholder-gray-400'
-                      : 'bg-white border-black/20 text-black placeholder-gray-600'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${isDark
+                    ? 'bg-black/50 border-white/20 text-white placeholder-gray-400'
+                    : 'bg-white border-black/20 text-black placeholder-gray-600'
+                    }`}
                   placeholder="Ваше имя"
                 />
               </div>
@@ -87,11 +85,10 @@ const ContactPage: React.FC<PageProps> = ({ isDark }) => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
-                    isDark
-                      ? 'bg-black/50 border-white/20 text-white placeholder-gray-400'
-                      : 'bg-white border-black/20 text-black placeholder-gray-600'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${isDark
+                    ? 'bg-black/50 border-white/20 text-white placeholder-gray-400'
+                    : 'bg-white border-black/20 text-black placeholder-gray-600'
+                    }`}
                   placeholder="your@email.com"
                 />
               </div>
@@ -99,7 +96,7 @@ const ContactPage: React.FC<PageProps> = ({ isDark }) => {
               <div>
                 <label htmlFor="message" className="block font-medium mb-2">
                   <MessageCircle className="inline mr-2" size={16} />
-                  Сообщение
+                  Message
                 </label>
                 <textarea
                   id="message"
@@ -108,25 +105,23 @@ const ContactPage: React.FC<PageProps> = ({ isDark }) => {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 resize-none ${
-                    isDark
-                      ? 'bg-black/50 border-white/20 text-white placeholder-gray-400'
-                      : 'bg-white border-black/20 text-black placeholder-gray-600'
-                  }`}
+                  className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 resize-none ${isDark
+                    ? 'bg-black/50 border-white/20 text-white placeholder-gray-400'
+                    : 'bg-white border-black/20 text-black placeholder-gray-600'
+                    }`}
                   placeholder="Ваше сообщение..."
                 />
               </div>
 
               <button
                 type="submit"
-                className={`w-full px-6 py-3 rounded-lg font-medium transition-colors duration-200 ${
-                  isDark
-                    ? 'bg-white text-black hover:bg-gray-200'
-                    : 'bg-black text-white hover:bg-gray-800'
-                }`}
+                className={`w-full px-6 py-3 rounded-lg font-medium transition-colors duration-200 ${isDark
+                  ? 'bg-white text-black hover:bg-gray-200'
+                  : 'bg-black text-white hover:bg-gray-800'
+                  }`}
               >
                 <Send className="inline mr-2" size={20} />
-                Отправить сообщение
+                Send message
               </button>
             </form>
           )}
@@ -134,9 +129,8 @@ const ContactPage: React.FC<PageProps> = ({ isDark }) => {
 
         {/* Contact Info */}
         <div className="space-y-6">
-          <div className={`p-6 rounded-lg border ${
-            isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
-          }`}>
+          <div className={`p-6 rounded-lg border ${isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
+            }`}>
             <div className="flex items-center space-x-3 mb-4">
               <Mail size={24} />
               <h3 className="text-xl font-bold">Email</h3>
@@ -145,61 +139,58 @@ const ContactPage: React.FC<PageProps> = ({ isDark }) => {
               support@mindgame.com
             </p>
             <p className={`text-sm mt-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-              Мы отвечаем в течение 24 часов
+              We respond within 24 hours
             </p>
           </div>
 
-          <div className={`p-6 rounded-lg border ${
-            isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
-          }`}>
+          <div className={`p-6 rounded-lg border ${isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
+            }`}>
             <div className="flex items-center space-x-3 mb-4">
               <Phone size={24} />
-              <h3 className="text-xl font-bold">Телефон</h3>
+              <h3 className="text-xl font-bold">Phone</h3>
             </div>
             <p className={`${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
               +7 (999) 123-45-67
             </p>
             <p className={`text-sm mt-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-              Понедельник - Пятница, 9:00 - 18:00
+              Monday - Friday, 9:00 AM - 6:00 PM
             </p>
           </div>
 
-          <div className={`p-6 rounded-lg border ${
-            isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
-          }`}>
+          <div className={`p-6 rounded-lg border ${isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
+            }`}>
             <div className="flex items-center space-x-3 mb-4">
               <MapPin size={24} />
-              <h3 className="text-xl font-bold">Адрес</h3>
+              <h3 className="text-xl font-bold">Address</h3>
             </div>
             <p className={`${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-              г. Москва, ул. Примерная, д. 123
+              Moscow, Primera St., 123
             </p>
             <p className={`text-sm mt-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-              Офис разработки
+              Development Office
             </p>
           </div>
 
-          <div className={`p-6 rounded-lg border ${
-            isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
-          }`}>
-            <h3 className="text-xl font-bold mb-4">Часто задаваемые вопросы</h3>
+          <div className={`p-6 rounded-lg border ${isDark ? 'border-white/20 bg-white/5' : 'border-black/20 bg-black/5'
+            }`}>
+            <h3 className="text-xl font-bold mb-4">Frequently Asked Questions</h3>
             <div className="space-y-3">
               <div>
-                <h4 className="font-medium mb-1">Как сбросить статистику?</h4>
+                <h4 className="font-medium mb-1">How to reset statistics?</h4>
                 <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                  Перейдите в раздел "Настройки" и нажмите кнопку "Сбросить статистику".
+                  Go to the "Settings" section and click the "Reset Statistics" button.
                 </p>
               </div>
               <div>
-                <h4 className="font-medium mb-1">Можно ли играть без интернета?</h4>
+                <h4 className="font-medium mb-1">Can I play without the internet?</h4>
                 <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                  Да, игра работает полностью офлайн после первой загрузки.
+                  Yes, the game works completely offline after the first download.
                 </p>
               </div>
               <div>
-                <h4 className="font-medium mb-1">Как изменить сложность?</h4>
+                <h4 className="font-medium mb-1">How to change difficulty?</h4>
                 <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                  В разделе "Настройки" выберите нужный уровень сложности.
+                  In the "Settings" section, select the desired difficulty level.
                 </p>
               </div>
             </div>

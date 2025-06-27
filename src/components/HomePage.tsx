@@ -12,7 +12,7 @@ const HomePage: React.FC<PageProps> = ({ isDark, stats, setCurrentPage }) => {
         </h1>
         <p className={`text-lg md:text-xl mb-8 ${isDark ? 'text-gray-300' : 'text-gray-700'
           }`}>
-          Проверь свою интуицию и логику в увлекательной игре угадывания чисел
+          Test your intuition and logic in the exciting number guessing game
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
@@ -23,13 +23,13 @@ const HomePage: React.FC<PageProps> = ({ isDark, stats, setCurrentPage }) => {
               }`}
           >
             <Play className="inline mr-2" size={20} />
-            Начать играть
+            Start playing
           </button>
           <button className={`px-8 py-3 rounded-lg font-medium border transition-colors duration-200 ${isDark
             ? 'border-white text-white hover:bg-white/10'
             : 'border-black text-black hover:bg-black/10'
             }`}>
-            Узнать больше
+            Learn More
           </button>
         </div>
       </section>
@@ -45,7 +45,7 @@ const HomePage: React.FC<PageProps> = ({ isDark, stats, setCurrentPage }) => {
             <span className="text-2xl font-bold">{stats.gamesWon}</span>
           </div>
           <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-            Побед
+            Wins
           </p>
         </div>
 
@@ -58,7 +58,7 @@ const HomePage: React.FC<PageProps> = ({ isDark, stats, setCurrentPage }) => {
             <span className="text-2xl font-bold">{stats.gamesPlayed}</span>
           </div>
           <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-            Игр сыграно
+            Games Played
           </p>
         </div>
 
@@ -71,7 +71,7 @@ const HomePage: React.FC<PageProps> = ({ isDark, stats, setCurrentPage }) => {
             <span className="text-2xl font-bold">{stats.bestScore || 0}</span>
           </div>
           <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-            Лучший результат
+            Best Score
           </p>
         </div>
 
@@ -86,7 +86,7 @@ const HomePage: React.FC<PageProps> = ({ isDark, stats, setCurrentPage }) => {
             </span>
           </div>
           <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-            Средний результат
+            Medium Score
           </p>
         </div>
       </section>
@@ -98,9 +98,9 @@ const HomePage: React.FC<PageProps> = ({ isDark, stats, setCurrentPage }) => {
             }`}>
             <Play size={24} />
           </div>
-          <h3 className="text-xl font-bold mb-2">Простая игра</h3>
+          <h3 className="text-xl font-bold mb-2">Simple game</h3>
           <p className={`${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-            Угадывайте числа и развивайте интуицию
+            Guess the numbers and develop your intuition
           </p>
         </div>
 
@@ -109,9 +109,9 @@ const HomePage: React.FC<PageProps> = ({ isDark, stats, setCurrentPage }) => {
             }`}>
             <TrendingUp size={24} />
           </div>
-          <h3 className="text-xl font-bold mb-2">Отслеживание прогресса</h3>
+          <h3 className="text-xl font-bold mb-2">Tracking Progress</h3>
           <p className={`${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-            Следите за своими достижениями и улучшениями
+            Keep track of your achievements and improvements
           </p>
         </div>
 
@@ -120,9 +120,9 @@ const HomePage: React.FC<PageProps> = ({ isDark, stats, setCurrentPage }) => {
             }`}>
             <Settings size={24} />
           </div>
-          <h3 className="text-xl font-bold mb-2">Настройки</h3>
+          <h3 className="text-xl font-bold mb-2">Settings</h3>
           <p className={`${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-            Выбирайте уровень сложности по своему вкусу
+            Choose your difficulty level to suit your taste
           </p>
         </div>
       </section>
