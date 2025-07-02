@@ -33,24 +33,3 @@ Creating reusable UI components
 Building responsive layouts with SCSS
 
 Hosting projects on Vercel from GitHub
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-________________________________________________________________
-
-[VERCEl]-------> https://quiz-guess-game-react.vercel.app/
